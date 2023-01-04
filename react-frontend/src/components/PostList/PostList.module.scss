@@ -1,0 +1,12 @@
+.post-list {
+  hr {
+    border: 0.8px solid #f1f1f1;
+    margin: 16px 0px;
+    border-radius: 10px;
+  }
+  &__container {
+    background-color: white;
+    border-radius: 20px;
+    padding: 24px;
+  }
+}
