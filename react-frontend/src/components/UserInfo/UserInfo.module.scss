@@ -1,0 +1,120 @@
+.user-info {
+  hr {
+    border: 0.8px solid #f1f1f1;
+    margin: 16px 0px;
+    border-radius: 10px;
+  }
+
+  &__container {
+    background-color: white;
+    border-radius: 20px;
+    padding: 24px;
+
+    &__header {
+      display: flex;
+      gap: 12px;
+      img {
+        width: 48px;
+        height: 48px;
+        border-radius: 100%;
+      }
+
+      div {
+        .username {
+          font-weight: 550;
+        }
+
+        .address {
+          color: #acacac;
+        }
+      }
+    }
+
+    &__body {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      .follows,
+      .following {
+        display: flex;
+        align-items: center;
+        img {
+          width: 18px;
+          height: 18px;
+          margin-right: 12px;
+        }
+
+        .number-of {
+          font-weight: 600;
+          font-size: 16px;
+          margin-right: 6px;
+        }
+
+        .type {
+          color: #acacac;
+          font-size: 14px;
+        }
+      }
+
+      .description {
+        margin-top: 8px;
+        font-size: 14px;
+        color: #6f6f6f;
+      }
+    }
+
+    &__user-pages {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .title {
+        color: #6f6f6f;
+      }
+
+      .list-pages {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        .instagram,
+        .linkedin {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          p {
+            font-size: 14px;
+          }
+
+          img {
+            width: 24px;
+            height: 24px;
+          }
+        }
+      }
+    }
+
+    &__edit {
+      border: 1px solid #c8c8c8;
+      color: #6f6f6f;
+      border-radius: 8px;
+      margin-top: 20px;
+      text-align: center;
+      padding: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    &__edit:hover {
+      // border: 1px solid #c18ff5;
+
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    &__edit-profile {
+      display: none;
+    }
+
+    .show-edit-profile {
+      display: block;
+    }
+  }
+}
