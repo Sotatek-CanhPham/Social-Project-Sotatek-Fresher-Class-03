@@ -1,0 +1,32 @@
+.friend-birthday {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  &__left {
+    display: flex;
+    img {
+      width: 100%;
+    }
+  }
+
+  &__right {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    gap: 4px;
+    &__username {
+      font-weight: 550;
+    }
+
+    &__address {
+      color: #acacac;
+    }
+
+    &__btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+}
