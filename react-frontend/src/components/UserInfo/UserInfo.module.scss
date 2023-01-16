@@ -104,17 +104,11 @@
     }
 
     &__edit:hover {
-      // border: 1px solid #c18ff5;
-
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     }
 
     &__edit-profile {
       display: none;
-    }
-
-    .show-edit-profile {
-      display: block;
     }
   }
 }

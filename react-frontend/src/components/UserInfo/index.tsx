@@ -1,26 +1,15 @@
-import React, { useState } from "react";
-import styles from "./UserInfo.module.scss";
 import AvatarUser from "../../assets/images/header/avatar.png";
 import FollowingIcon from "../../assets/images/user-info/following.svg";
 import FollowsIcon from "../../assets/images/user-info/follows.svg";
 import InstagramIcon from "../../assets/images/user-info/instagram.svg";
 import LinkedInIcon from "../../assets/images/user-info/linkedin.svg";
-import EditProfile from "./EditProfile";
-import HomePage from "../../pages/Home";
+import styles from "./UserInfo.module.scss";
 
-type Props = {};
+type Props = {
+  onEditClick: () => void;
+};
 
-const UserInfo = (props: Props) => {
-  const [openEditProfile, setOpenEditProfile] = useState(false);
-
-  const handleClickEdit = () => {
-    const editProfile = document.querySelector(
-      `.${styles["user-info__container__edit-profile"]}`
-    );
-    editProfile?.classList.toggle(styles["show-edit-profile"]);
-
-    setOpenEditProfile(!openEditProfile);
-  };
+const UserInfo = ({ onEditClick }: Props) => {
   return (
     <div className={styles["user-info"]}>
       <div className={styles["user-info__container"]}>
@@ -67,12 +56,9 @@ const UserInfo = (props: Props) => {
 
         <div
           className={styles["user-info__container__edit"]}
-          onClick={handleClickEdit}
+          onClick={onEditClick}
         >
           Edit
-        </div>
-        <div className={styles["user-info__container__edit-profile"]}>
-          <EditProfile />
         </div>
       </div>
     </div>
