@@ -6,4 +6,195 @@
   width: 100%;
   height: 100%;
   z-index: 100;
+
+  hr {
+    border: 0.1px solid #e6e6e6 !important;
+    border-radius: 0px !important;
+    margin: 0px 16px;
+  }
+
+  &__container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    width: 40%;
+    height: auto;
+    border-radius: 10px;
+    padding: 28px 48px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+
+    h2 {
+      font-size: 1.6rem;
+      margin: 0px;
+      text-align: center;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    &__header {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      img {
+        width: 67px;
+        height: 67px;
+        border-radius: 100%;
+      }
+
+      &__right {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        .fullname {
+          font-size: 18px;
+          font-weight: 600;
+        }
+
+        .post-status {
+          position: relative;
+
+          .fa-icon {
+            position: absolute;
+            top: 28%;
+            left: 16px;
+            width: 16px;
+          }
+          &-input {
+            -webkit-appearance: none;
+            width: 88px;
+            height: 35px;
+            border-radius: 8px;
+            background-color: #f5f5f5;
+            font-family: Poppins;
+            font-size: 14px;
+            padding-left: 40px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+          }
+
+          .down-arrow {
+            position: absolute;
+            right: 32px;
+            top: 36%;
+            width: 12px;
+            height: 12px;
+            margin-left: 5px;
+            cursor: pointer;
+          }
+
+          &-option {
+            position: absolute;
+            top: 110%;
+            left: 0px;
+            width: 130px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            color: #29282b;
+            overflow: hidden;
+
+            &-item {
+              padding: 4px;
+              display: flex;
+              align-items: center;
+              font-size: 14px;
+              padding: 10px 20px;
+              gap: 8px;
+            }
+
+            &-item:hover {
+              background-color: #62baea;
+            }
+          }
+        }
+      }
+    }
+
+    &__content {
+      margin-top: 16px;
+      textarea {
+        width: 100%;
+        height: 130px;
+        border: none;
+        outline: none;
+        resize: none;
+        font-size: 20px;
+        font-family: Poppins;
+        font-weight: 400;
+        color: #29282b;
+        padding: 8px;
+      }
+
+      textarea::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      textarea::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 2, 0.1);
+        border-radius: 4px;
+      }
+
+      textarea::-webkit-scrollbar-thumb {
+        background-color: #c18ff5;
+        border-radius: 4px;
+        // outline: 1px solid #c18ff5;
+      }
+    }
+
+    &__media-option {
+      margin-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid #c8c8c8;
+      border-radius: 8px;
+      padding: 0px 24px;
+
+      ul {
+        list-style-type: none;
+        display: flex;
+        gap: 28px;
+
+        li {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    &__post-submit {
+      margin-top: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #c18ff5;
+      color: #fff;
+      font-weight: 600;
+      font-size: 18px;
+      border-radius: 8px;
+      height: 57px;
+      cursor: pointer;
+    }
+
+    &__post-submit:hover {
+      background-color: #a16edc;
+    }
+  }
 }
