@@ -1,11 +1,9 @@
-import React from "react";
-import styles from "./Post.module.scss";
 import AvatarUser from "../../../assets/images/header/avatar.png";
+import CommentIcon from "../../../assets/images/post-list/comment-post.svg";
+import LikeIcon from "../../../assets/images/post-list/like-post.svg";
 import OptionIcon from "../../../assets/images/post-list/option.svg";
 import PostImage from "../../../assets/images/post-list/post-image.svg";
-import LikeIcon from "../../../assets/images/post-list/like-post.svg";
-import CommentIcon from "../../../assets/images/post-list/comment-post.svg";
-import UnLikeIcon from "../../../assets/images/post-list/unlike-post.svg";
+import styles from "./Post.module.scss";
 
 type Props = {};
 

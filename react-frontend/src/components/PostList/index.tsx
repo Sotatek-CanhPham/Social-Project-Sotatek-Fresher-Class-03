@@ -1,4 +1,3 @@
-import React from "react";
 import Post from "./Post";
 import styles from "./PostList.module.scss";
 
