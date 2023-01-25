@@ -10,6 +10,12 @@
   justify-content: center;
   align-items: center;
 
+  .error-message {
+    // display: none;
+    color: red;
+    font-size: 12px;
+    margin-top: 4px;
+  }
   &__container {
     position: absolute;
     top: 160px;
@@ -97,8 +103,14 @@
         box-shadow: 0 8px 25px rgba(114, 56, 207, 0.15);
 
         margin-top: 20px;
-
         cursor: pointer;
+        border: none;
+        font-family: "Poppins", sans-serif;
+        outline: none;
+      }
+
+      &__submit:hover {
+        background-color: #b17ee5;
       }
 
       .link-element {
