@@ -1,10 +1,10 @@
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
-import * as Yup from "yup";
 import { Link } from "react-router-dom";
-import styles from "./SignUp.module.scss";
+import * as Yup from "yup";
 import { useFormik } from "formik";
+import styles from "./SignUp.module.scss";
 
 const SignUp = () => {
   const [passwordShown, setPasswordShown] = useState(false);
@@ -29,10 +29,6 @@ const SignUp = () => {
     confirmPassword: Yup.string()
       .oneOf([Yup.ref("password")], "Passwords must match")
       .required("Confirm password is required"),
-    terms: Yup.boolean().oneOf(
-      [true],
-      "You must accept the terms and conditions"
-    ),
   });
 
   const formik = useFormik({
@@ -41,11 +37,10 @@ const SignUp = () => {
       email: "",
       password: "",
       confirmPassword: "",
-      terms: false,
     },
-    validationSchema: validationSchema,
+    validationSchema,
     onSubmit: (values) => {
-      console.log(values);
+      // handle submit logic here
     },
   });
 
@@ -63,60 +58,60 @@ const SignUp = () => {
                 </Link>
               </p>
             </div>
-            <div className={styles["signup__container__content__fullname"]}>
+            <div className={styles["signup__container__content__email"]}>
               <label className={styles["label"]}>Fullname</label>
               <div className={styles["input"]}>
                 <input
                   type="text"
-                  className={styles["input-fullname"]}
                   name="fullname"
+                  className={styles["input-email"]}
                   value={formik.values.fullname}
                   onChange={formik.handleChange}
                 />
+                {formik.touched.fullname && formik.errors.fullname && (
+                  <div className={styles["error-message"]}>
+                    {formik.errors.fullname}
+                  </div>
+                )}
               </div>
-              {formik.touched.fullname && formik.errors.fullname && (
-                <div className={styles["error-message"]}>
-                  {formik.errors.fullname}
-                </div>
-              )}
             </div>
             <div className={styles["signup__container__content__email"]}>
               <label className={styles["label"]}>Email Address</label>
               <div className={styles["input"]}>
                 <input
                   type="text"
-                  className={styles["input-email"]}
                   name="email"
-                  value={formik.values.email}
-                  onChange={formik.handleChange}
+                  className={styles["input-email"]}
                 />
+                {formik.touched.email && formik.errors.email && (
+                  <div className={styles["error-message"]}>
+                    {formik.errors.email}
+                  </div>
+                )}
               </div>
-              {formik.touched.email && formik.errors.email && (
-                <div className={styles["error-message"]}>
-                  {formik.errors.email}
-                </div>
-              )}
             </div>
-
             <div className={styles["signup__container__content__password"]}>
               <label className={styles["label"]}>Password</label>
               <div className={styles["input"]}>
                 <input
                   type={passwordShown ? "text" : "password"}
-                  className={styles["input-password"]}
                   name="password"
+                  className={styles["input-password"]}
                   value={formik.values.password}
                   onChange={formik.handleChange}
                 />
-                <i onClick={togglePasswordVisiblity}>
+                <span
+                  onClick={togglePasswordVisiblity}
+                  className={styles["toggle-password"]}
+                >
                   {passwordShown ? eye : eyeSlash}
-                </i>
+                </span>
+                {formik.touched.password && formik.errors.password && (
+                  <div className={styles["error-message"]}>
+                    {formik.errors.password}
+                  </div>
+                )}
               </div>
-              {formik.touched.password && formik.errors.password && (
-                <div className={styles["error-message"]}>
-                  {formik.errors.password}
-                </div>
-              )}
             </div>
             <div
               className={styles["signup__container__content__confirm-password"]}
@@ -125,47 +120,29 @@ const SignUp = () => {
               <div className={styles["input"]}>
                 <input
                   type={confirmPasswordShown ? "text" : "password"}
-                  className={styles["input-password"]}
                   name="confirmPassword"
+                  className={styles["input-password"]}
                   value={formik.values.confirmPassword}
                   onChange={formik.handleChange}
                 />
-                <i onClick={toggleConfirmPasswordVisiblity}>
+                <span
+                  onClick={toggleConfirmPasswordVisiblity}
+                  className={styles["toggle-password"]}
+                >
                   {confirmPasswordShown ? eye : eyeSlash}
-                </i>
+                </span>
+                {formik.touched.confirmPassword &&
+                  formik.errors.confirmPassword && (
+                    <div className={styles["error-message"]}>
+                      {formik.errors.confirmPassword}
+                    </div>
+                  )}
               </div>
-              {formik.touched.confirmPassword &&
-                formik.errors.confirmPassword && (
-                  <div className={styles["error-message"]}>
-                    {formik.errors.confirmPassword}
-                  </div>
-                )}
             </div>
-
-            <div className={styles["signup__container__content__checkbox"]}>
-              <input
-                type="checkbox"
-                style={{ margin: "0" }}
-                name="terms"
-                checked={formik.values.terms}
-                onChange={formik.handleChange}
-              />{" "}
-              I accept the{" "}
-              <Link to={"/"} className={styles["link-element"]}>
-                Terms & Conditions.
-              </Link>
-              {formik.touched.terms && formik.errors.terms && (
-                <div className={styles["error-message"]}>
-                  {formik.errors.terms}
-                </div>
-              )}
-            </div>
-
-            <div>
-              <button
-                className={styles["signup__container__content__submit"]}
-                type="submit"
-              >
+            <div
+              className={styles["signup__container__content__submit-button"]}
+            >
+              <button className={styles["submit-button"]} type="submit">
                 Sign Up
               </button>
             </div>

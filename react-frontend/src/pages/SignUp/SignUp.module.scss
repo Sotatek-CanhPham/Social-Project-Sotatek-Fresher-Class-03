@@ -10,6 +10,12 @@
   justify-content: center;
   align-items: center;
 
+  .error-message {
+    // display: none;
+    color: red;
+    font-size: 12px;
+    margin-top: 4px;
+  }
   &__container {
     position: absolute;
     left: 800px;
@@ -34,6 +40,7 @@
         margin-bottom: 8px;
       }
 
+      &__fullname,
       &__email,
       &__password,
       &__confirm-password {
@@ -63,16 +70,6 @@
           outline: none !important;
           border-color: #c18ff5;
           box-shadow: 0 0 10px #c18ff5;
-        }
-
-        .invalid-feedback {
-          // display: none;
-          color: red;
-          font-size: 12px;
-          margin-top: 4px;
-        }
-        .invalid-feedback:hover {
-          display: none;
         }
       }
 
@@ -119,6 +116,13 @@
         box-shadow: 0 8px 25px rgba(114, 56, 207, 0.15);
 
         cursor: pointer;
+        border: none;
+        outline: none;
+        font-family: "Poppins", sans-serif;
+      }
+
+      &__submit:hover {
+        background-color: #b17ee5;
       }
     }
   }
