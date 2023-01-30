@@ -1,0 +1,15 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:8.0.25
+    container_name: nestjs-social
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --sql_mode="" --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: '1'
+      MYSQL_DATABASE: social_database
+      MYSQL_USER: root
+      MYSQL_PASSWORD: '1'
+
+      LANG: C.UTF-8
+    ports:
+      - 23306:3306
