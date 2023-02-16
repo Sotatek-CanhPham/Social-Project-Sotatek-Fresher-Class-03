@@ -8,9 +8,10 @@ import styles from "./CreatePost.module.scss";
 
 type Props = {
   onNewPostClick: () => void;
+  userInfo: any;
 };
 
-const CreatePost = ({ onNewPostClick }: Props) => {
+const CreatePost = ({ onNewPostClick, userInfo }: Props) => {
   return (
     <div className={styles["create-post"]}>
       <div className={styles["create-post__container"]}>

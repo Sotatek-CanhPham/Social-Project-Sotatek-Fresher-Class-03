@@ -1,16 +1,17 @@
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
-import * as Yup from "yup";
-import { Link } from "react-router-dom";
-import styles from "./SignUp.module.scss";
 import { useFormik } from "formik";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import * as Yup from "yup";
+import styles from "./SignUp.module.scss";
 
 const SignUp = () => {
   const [passwordShown, setPasswordShown] = useState(false);
   const [confirmPasswordShown, setConfirmPasswordShown] = useState(false);
   const eye = <FontAwesomeIcon icon={faEye} />;
   const eyeSlash = <FontAwesomeIcon icon={faEyeSlash} />;
+  const navigate = useNavigate();
 
   const togglePasswordVisiblity = () => {
     setPasswordShown(passwordShown ? false : true);
@@ -44,9 +45,7 @@ const SignUp = () => {
       terms: false,
     },
     validationSchema: validationSchema,
-    onSubmit: (values) => {
-      console.log(values);
-    },
+    onSubmit: (values) => {},
   });
 
   return (

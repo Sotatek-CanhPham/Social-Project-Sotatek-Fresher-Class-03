@@ -1,18 +1,22 @@
 import "./App.css";
 
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import { useState } from "react";
+import { AuthContext } from "./context/authContext";
+import ProtectedRoute from "./services/utils/protectedRoutes";
 
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<HomePage />}></Route>
-        <Route path="/home" element={<HomePage />}></Route>
-        <Route path="/sign-in" element={<SignIn />}></Route>
-        <Route path="/sign-up" element={<SignUp />}></Route>
+        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/sign-up" element={<SignUp />} />
+
+        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<Navigate replace to="/home" />} />
       </Routes>
     </div>
   );

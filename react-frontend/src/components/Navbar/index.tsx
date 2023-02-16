@@ -9,9 +9,11 @@ import MarketIcon from "../../assets/images/header/header-marketplace.svg";
 import GroupsIcon from "../../assets/images/header/header-groups.svg";
 import AvatarUser from "../../assets/images/header/avatar.png";
 
-type Props = {};
+type Props = {
+  userInfo: any;
+};
 
-const Navbar = (props: Props) => {
+const Navbar = ({ userInfo }: Props) => {
   return (
     <div className={styles["navbar"]}>
       <div className={styles["navbar__container"]}>
@@ -57,7 +59,7 @@ const Navbar = (props: Props) => {
 
         <div className={styles["navbar__container__account"]}>
           <img src={AvatarUser} alt="" />
-          <p>Pham Huy Canh</p>
+          <p>{userInfo.fullname}</p>
         </div>
       </div>
     </div>
