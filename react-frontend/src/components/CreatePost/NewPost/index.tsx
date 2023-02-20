@@ -16,9 +16,10 @@ import styles from "./NewPost.module.scss";
 
 type Props = {
   onClose: () => void;
+  userInfo: any;
 };
 
-const NewPost = ({ onClose }: Props) => {
+const NewPost = ({ onClose, userInfo }: Props) => {
   const [status, setStatus] = React.useState("Public");
   const [faIcon, setFaIcon] = React.useState<IconProp>(faEarthAsia);
   const [isShowDropdown, setIsShowDropdown] = React.useState(false);
@@ -44,7 +45,7 @@ const NewPost = ({ onClose }: Props) => {
         <div className={styles["new-post__container__header"]}>
           <img alt="" src={AvatarUser} />
           <div className={styles["new-post__container__header__right"]}>
-            <div className={styles["fullname"]}>Pham Huy Canh</div>
+            <div className={styles["fullname"]}>{userInfo.fullname}</div>
             <div className={styles["post-status"]} onClick={showDropdown}>
               <FontAwesomeIcon icon={faIcon} className={styles["fa-icon"]} />
               <input
@@ -69,7 +70,7 @@ const NewPost = ({ onClose }: Props) => {
                     onClick={show("Public", faEarthAsia)}
                   >
                     <FontAwesomeIcon icon={faEarthAsia} />
-                    <p>Public</p>
+                    <p id="public">Public</p>
                   </div>
                   <hr />
 
@@ -78,7 +79,7 @@ const NewPost = ({ onClose }: Props) => {
                     onClick={show("Friend", faUserGroup)}
                   >
                     <FontAwesomeIcon icon={faUserGroup} />
-                    <p>Friend</p>
+                    <p id="friend">Friend</p>
                   </div>
 
                   <hr />
@@ -87,7 +88,7 @@ const NewPost = ({ onClose }: Props) => {
                     onClick={show("Only me", faLock)}
                   >
                     <FontAwesomeIcon icon={faLock} />
-                    <p>Only me</p>
+                    <p id="onlyme">Only me</p>
                   </div>
                 </div>
               )}
@@ -95,7 +96,10 @@ const NewPost = ({ onClose }: Props) => {
           </div>
         </div>
         <div className={styles["new-post__container__content"]}>
-          <textarea placeholder="What's on your mind?" />
+          <textarea
+            placeholder="What's on your mind?"
+            name="content"
+          ></textarea>
         </div>
         <div className={styles["new-post__container__media-option"]}>
           <p>Add to your post</p>

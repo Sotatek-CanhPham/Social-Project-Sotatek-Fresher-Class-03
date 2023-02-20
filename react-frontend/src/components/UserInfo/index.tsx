@@ -7,17 +7,18 @@ import styles from "./UserInfo.module.scss";
 
 type Props = {
   onEditClick: () => void;
+  userInfo: any;
 };
 
-const UserInfo = ({ onEditClick }: Props) => {
+const UserInfo = ({ userInfo, onEditClick }: Props) => {
   return (
     <div className={styles["user-info"]}>
       <div className={styles["user-info__container"]}>
         <div className={styles["user-info__container__header"]}>
           <img src={AvatarUser} alt="" />
           <div>
-            <p className={styles["username"]}>Pham Huy Canh</p>
-            <p className={styles["address"]}>Thai Binh</p>
+            <p className={styles["username"]}>{userInfo.fullname}</p>
+            <p className={styles["address"]}>{userInfo.location}</p>
           </div>
         </div>
         <hr />
@@ -33,10 +34,7 @@ const UserInfo = ({ onEditClick }: Props) => {
             <p className={styles["type"]}>Following</p>
           </div>
           <div className={styles["description"]}>
-            <p>
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout
-            </p>
+            <p>{userInfo.bio}</p>
           </div>
         </div>
         <hr />
