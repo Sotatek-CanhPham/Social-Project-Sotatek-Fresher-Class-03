@@ -37,16 +37,16 @@ export class PostController {
     return this.postService.createPost(userId, createPostDto);
   }
 
-  @Patch()
-  updatePostById(
-    @GetUser('id') userId: string,
-    @Body() updatePostDto: UpdatePostDto,
-  ) {
-    return this.postService.updatePostById(userId, updatePostDto);
-  }
+  // @Patch()
+  // updatePostById(
+  //   @GetUser('id') userId: string,
+  //   @Body() updatePostDto: UpdatePostDto,
+  // ) {
+  //   return this.postService.updatePostById(userId, updatePostDto);
+  // }
 
-  @Delete()
-  deletePostById(@GetUser('id') userId: string) {
-    return this.postService.deletePostById(userId);
-  }
+  // @Delete()
+  // deletePostById(@GetUser('id') userId: string) {
+  //   return this.postService.deletePostById(userId);
+  // }
 }

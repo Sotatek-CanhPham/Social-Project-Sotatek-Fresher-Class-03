@@ -10,4 +10,6 @@ export class UpdateUserDto extends PartialType(CreateUserDto) {
   location?: string;
 
   bio?: string;
+
+  avatar?: string;
 }

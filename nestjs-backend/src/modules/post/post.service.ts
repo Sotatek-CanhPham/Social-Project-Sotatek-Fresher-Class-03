@@ -5,7 +5,13 @@ import { CreatePostDto, UpdatePostDto } from './dto';
 @Injectable()
 export class PostService {
   constructor(private prismaService: PrismaService) {}
-  getPosts(userId: string) {}
+  getPosts(userId: string) {
+    return this.prismaService.post.findMany({
+      where: {
+        userId,
+      },
+    });
+  }
 
   getPostById(postId: string) {}
 

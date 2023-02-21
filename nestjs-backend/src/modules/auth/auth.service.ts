@@ -23,6 +23,7 @@ export class AuthService {
           password: hashedPassword,
           location: '',
           bio: '',
+          avatar: '',
         },
 
         select: {
@@ -31,6 +32,7 @@ export class AuthService {
           email: true,
           location: true,
           bio: true,
+          avatar: true,
         },
       });
       return await this.signJwtToken(user.id, user.email);
@@ -65,7 +67,7 @@ export class AuthService {
     const payload = { sub: userId, email };
 
     const jwtString = await this.jwtService.signAsync(payload, {
-      expiresIn: '120m',
+      expiresIn: '180m',
       secret: this.configService.get('JWT_SECRET'),
     });
 

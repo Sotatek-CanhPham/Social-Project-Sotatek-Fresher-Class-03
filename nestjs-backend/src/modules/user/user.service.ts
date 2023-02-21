@@ -25,12 +25,14 @@ export class UserService {
         fullname: updateUserDto.fullname,
         location: updateUserDto.location,
         bio: updateUserDto.bio,
+        avatar: updateUserDto.avatar,
       },
       select: {
         id: true,
         fullname: true,
         location: true,
         bio: true,
+        avatar: true,
       },
     });
 
