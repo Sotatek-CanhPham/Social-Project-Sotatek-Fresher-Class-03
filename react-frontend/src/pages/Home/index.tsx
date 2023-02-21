@@ -20,6 +20,7 @@ const HomePage = (props: Props) => {
   const [isModalEditProfileOpen, setIsModalEditProfileOpen] = useState(false);
   const [isModalNewPostOpen, setIsModalNewPostOpen] = useState(false);
   const [isModalUserNavbarOpen, setIsModalUserNavbarOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState();
 
   const openModalEditProfile = () => {
     setIsModalEditProfileOpen(true);
@@ -53,7 +54,7 @@ const HomePage = (props: Props) => {
         const data = await fetchUserData.getCurrentUser();
         setUserInfo(data);
       } catch (error) {
-        console.log("Error fetching user profile: ", error);
+        console.log(error);
       }
     };
 
@@ -66,7 +67,7 @@ const HomePage = (props: Props) => {
         const data = await fetchPostData.getPosts();
         setpostsList(data);
       } catch (error) {
-        console.log("Error fetching posts: ", error);
+        console.log(error);
       }
     };
 

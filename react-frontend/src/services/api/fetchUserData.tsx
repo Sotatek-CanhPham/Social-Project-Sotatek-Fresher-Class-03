@@ -6,8 +6,10 @@ const fetchUserData = {
     try {
       const { data } = await axiosClient.get("/user/me");
       return data;
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      if (error.response.data.statusCode === 401) {
+        localStorage.removeItem("token");
+      }
     }
   },
 
@@ -15,8 +17,10 @@ const fetchUserData = {
     try {
       const response = await axiosClient.patch("/user/edit", data);
       return response;
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      if (error.response.data.statusCode === 401) {
+        localStorage.removeItem("token");
+      }
     }
   },
 };
