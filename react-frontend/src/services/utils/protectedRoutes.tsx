@@ -1,15 +1,15 @@
-import { ReactFragment, ReactNode } from "react";
+import React from "react";
 import { Navigate } from "react-router-dom";
 
 type Props = {
-  isLoggedIn: boolean;
+  isSignedIn: boolean;
   children: any;
 };
 
-const ProtectedRoute = ({ isLoggedIn, children }: Props) => {
-  if (!isLoggedIn) {
-    return <Navigate to="/sign-in" replace />;
+function ProtectedRoute({ isSignedIn, children }: Props) {
+  if (!isSignedIn) {
+    return <Navigate to="/" replace />;
   }
   return children;
-};
+}
 export default ProtectedRoute;

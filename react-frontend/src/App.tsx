@@ -7,6 +7,7 @@ import SignUp from "./pages/SignUp";
 import { useState } from "react";
 import { AuthContext } from "./context/authContext";
 import ProtectedRoute from "./services/utils/protectedRoutes";
+import EditProfile from "./components/EditProfile";
 
 function App() {
   return (
@@ -14,9 +15,8 @@ function App() {
       <Routes>
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
-
         <Route path="/" element={<HomePage />} />
-        <Route path="/" element={<Navigate replace to="/home" />} />
+        <Route path="*" element={<Navigate replace to={"/"} />} />
       </Routes>
     </div>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.scss";
 import LogoIcon from "../../assets/images/header/logo.svg";
@@ -11,9 +11,21 @@ import AvatarUser from "../../assets/images/header/avatar.png";
 
 type Props = {
   userInfo: any;
+  onUserNavbarClick: () => void;
+  onClose: () => void;
 };
 
-const Navbar = ({ userInfo }: Props) => {
+const Navbar = ({ userInfo, onUserNavbarClick, onClose }: Props) => {
+  const [isShowUserNavbar, setIsShowUserNavbar] = useState(true);
+
+  const handleUserNavbarClick = () => {
+    setIsShowUserNavbar(!isShowUserNavbar);
+    if (isShowUserNavbar) {
+      onUserNavbarClick();
+    } else {
+      onClose();
+    }
+  };
   return (
     <div className={styles["navbar"]}>
       <div className={styles["navbar__container"]}>
@@ -57,7 +69,10 @@ const Navbar = ({ userInfo }: Props) => {
           </ul>
         </div>
 
-        <div className={styles["navbar__container__account"]}>
+        <div
+          className={styles["navbar__container__account"]}
+          onClick={handleUserNavbarClick}
+        >
           <img src={AvatarUser} alt="" />
           <p>{userInfo.fullname}</p>
         </div>

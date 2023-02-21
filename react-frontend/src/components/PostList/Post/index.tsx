@@ -5,9 +5,11 @@ import OptionIcon from "../../../assets/images/post-list/option.svg";
 import PostImage from "../../../assets/images/post-list/post-image.svg";
 import styles from "./Post.module.scss";
 
-type Props = {};
+type Props = {
+  content: string;
+};
 
-const Post = (props: Props) => {
+const Post = ({ content }: Props) => {
   return (
     <div className={styles["post"]}>
       <div className={styles["post__header"]}>
@@ -30,16 +32,7 @@ const Post = (props: Props) => {
       </div>
       <div className={styles["post__content"]}>
         <div className={styles["post-caption"]}>
-          <p>
-            It is a long established fact that a reader will be distracted by
-            the readable content of a page when looking at its layout.
-          </p>
-          <p>
-            The point of using Lorem Ipsum is that it has a more-or-less normal
-            distribution of letters, as opposed to using 'Content here, content
-            here', making it look like readable English. Many desktop publishing
-            packages and.
-          </p>
+          <p>{content}</p>
         </div>
         <div className={styles["post-images"]}>
           <img src={PostImage} alt="" />

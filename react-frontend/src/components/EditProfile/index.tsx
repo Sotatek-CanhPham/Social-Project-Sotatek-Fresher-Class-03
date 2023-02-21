@@ -1,4 +1,3 @@
-import { useFormik } from "formik";
 import React from "react";
 import AddIcon from "../../assets/images/edit-profile/add.svg";
 import CameraIcon from "../../assets/images/edit-profile/camera.svg";
@@ -10,6 +9,7 @@ import InstagramIcon from "../../assets/images/user-info/instagram.svg";
 import LinkedInIcon from "../../assets/images/user-info/linkedin.svg";
 import styles from "./EditProfile.module.scss";
 import fetchUserData from "../../services/api/fetchUserData";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   onClose: () => void;
@@ -21,6 +21,7 @@ const EditProfile = ({ onClose, userInfo, updateUserInfo }: Props) => {
   const [editing, setEditing] = React.useState(false);
   const [adding, setAdding] = React.useState(false);
   const [pageName, setPageName] = React.useState("");
+  const navigate = useNavigate();
 
   const [fullname, setFullname] = React.useState(userInfo.fullname);
   const [location, setLocation] = React.useState(userInfo.location);
@@ -72,6 +73,7 @@ const EditProfile = ({ onClose, userInfo, updateUserInfo }: Props) => {
     try {
       const response = await fetchUserData.updateUserProfile(data);
       updateUserInfo(response?.data);
+      onClose();
     } catch (error) {
       console.log(error);
     }
@@ -218,10 +220,7 @@ const EditProfile = ({ onClose, userInfo, updateUserInfo }: Props) => {
 
         {editing && (
           <div className={styles["submit"]}>
-            <button
-              className={styles["btn-cancel"]}
-              onClick={handleCancelClick}
-            >
+            <button className={styles["btn-cancel"]} onClick={onClose}>
               Cancel
             </button>
             <button
